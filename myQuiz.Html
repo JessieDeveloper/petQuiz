@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Jessica Miller!</title>
+<style> body {
+	font-family: 'Lato', sans-serif;
+background-color: pink;
+}
+
+
+#quiz {
+	margin-left: 10px;
+	background: purple;
+	padding: 10px 20px 10px 20px;
+	width: 400px;
+	border-radius: 20px;
+	float: center;
+
+}
+
+input {
+	margin-bottom: 20px;
+	display: block;
+}
+
+#textbox {
+	height: 25px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: none;
+	padding-left: 5px;
+}
+
+
+#button {
+	background: pink;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	color: white;
+	font-size: 16px;
+	transition-duration: .5s;
+	margin-top: 15px;
+}
+
+
+
+#button:hover {
+	background: white;
+	border: 1px solid white;
+	color: black;
+	cursor: pointer;
+
+}
+
+#after_submit {
+	visibility: hidden;
+	background: #ff5459;
+	padding: 10px 20px 10px 20px;
+	width: 400px;
+	border-radius: 20px;
+	float: left;
+	margin-left: 20px;
+	font-size: 30px;
+
+
+}
+
+#picture {
+	width: 375px;
+	height: 245px;
+}
+
+
+
+#mc {
+	display: inline;
+} </style>
+<script> function check(){
+
+	var question1 = document.quiz.question1.value;
+	var question2 = document.quiz.question2.value;
+	var question3 = document.quiz.question3.value;
+	var cat = 0;
+
+
+	if (question1 ===  "Adventurous") {
+		cat++;
+}
+	if (question2 === "Anxious") {
+		cat++;
+}	
+	if (question3 === "Creative") {
+		cat++;
+	}
+	
+	
+	var messages = ["Great job!", "That's just okay", "You really need to do better"];
+	var result;
+	if (cat == 0) {
+		score = 2;
+	}
+
+	if (cat > 0 && cat < 3) {
+		score = 1;
+	}
+
+	if (cat == 3) {
+		score = 0;
+	}
+
+	document.getElementById("after_submit").style.visibility = "visible";
+
+	document.getElementById("message").innerHTML = messages[score];
+	
+	}
+}
+</script>
+
+</head>
+
+
+<body>
+<h1>Quiz: Cat or Dog Person?</h1>
+
+
+<form id = "quiz" name = "quiz">
+
+
+
+<p class = "questions">How do you manage conflict?</p></br>
+<input type = "radio" id = "mc" name = "question1" value = "Adventurous"> Adventurous - I enjoy the challenge!<br>
+<input type = "radio" id = "mc" name = "question1" value = "Averse"> Risk-Averse - I try to avoid conflict at all cost!<br>
+
+<p class = "questions">What is your temperament?</br>
+<input type = "radio" id = "mc" name = "question2" value = "Anxious"> Anxious<br>
+<input type = "radio" id = "mc" name = "question2" value = "Secure"> Secure<br>
+
+<p class = "questions">Which do you consider yourself?</p></br>
+
+<input type = "radio" id = "mc" name = "question3" value = "Creative"> Creative<br>
+<input type = "radio" id = "mc" name = "question3" value = "Extroverted"> Extroverted<br>
+
+
+<input id = "button" type = "button" value = "Submit to see results!" onclick = "check();">
+
+
+
+</form>
+
+
+<div id = "after_submit">
+<p id ="message"></p>
+</div>
+</html>
+
+</body>
+
